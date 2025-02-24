@@ -1,0 +1,46 @@
+<html>
+<head>
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+      background-color : #D9D9D9;
+		}
+		div.b {
+			width: 400px;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+    input, textarea{
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button{
+      border-radius: 5px;
+    }
+
+	</style>
+</head>
+<body>
+  <div class="b" >
+		<h2 style="text-align: center; color: #000000;">จ่ายเงิน</h2>
+		<input type="text" name="name" placeholder="ชื่อผู้รับ" #name><br><br>
+    <input type="text" name="name" placeholder="เบอร์โทรศัพท์" #phone><br><br>
+    <textarea name="detail" cols="30" rows="5"placeholder="ที่อยู่" #address></textarea><br><br>
+    <div style="display: flex;justify-content: space-between;">
+          <button (click)="back()" style="width: 100px; background-color: #DF3D27; color: #ffffff;">ยกเลิก</button>
+          <button (click)="payNow(name.value,address.value,phone.value)" style="width: 100px; background-color: #27BEDF; color: #ffffff;">ตกลง</button>
+      </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<body>
+  <mat-toolbar class="fxLayout drak app-toolbar" style="width:100%;height: auto; flex-direction: row;justify-content:space-between;
+    background-color: #ffffff ;color: rgb(0, 0, 0); position: -webkit-sticky; position: sticky; top: 0px; z-index: 1000;box-shadow: 1px 0px 5px #000000;" >
+    <div class="container" style="margin-top: 50px;display: inline-flex;justify-content:space-between; ">
+      <div class="fxLayout" style="flex-direction:row; align-items: center; position: relative;">
+        <h1 style="font-size: 30px;font-weight: bolder;">Owner</h1>
+        <!-- <label (click)="back()" style="cursor:pointer; margin-top: 10px; margin-bottom: 15px;color: #dc143c;font-size: 15px;"><< Back</label> -->
+      </div>
+      <div>
+        <mat-icon (click)="logout()" class="grow" style="margin-right: 20px;width: 40px; height: 40px;cursor:pointer">
+          <div style="display: flex; justify-content: center;">
+            <img width="100%" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3183553/ic-fluent-share-24-filled-icon-md.png" alt="">
+            <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_logOut-ltr.svg/1024px-OOjs_UI_icon_logOut-ltr.svg.png -->
+          </div>
+        </mat-icon>
+      </div>
+    </div>
+  </mat-toolbar>
+
+<div style="width: 100%; height: auto; background-color: #D9D9D9;">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12" style="margin-top: 20px;">
+        <h3>รายการของลูกค้า</h3>
+      </div>
+
+      <div class="col-lg-12"style="margin-top: 20px; height: auto; border-radius: 10px; ">
+        <mat-card class="example-card" style="width: 100%; height: auto;">
+          <div style="display: flex; flex-direction: column; margin: 20px 20px 0px;">
+
+            <!-- tests -->
+            <div *ngFor="let order of this.orderowner"  style="display: flex;  justify-content: space-between; height: auto;background-color:#D9D9D9;margin-bottom: 20px;border-radius: 5px;">
+              <div  style="margin: 20px;width: 300px;">
+
+                <span style="display: flex;">คำสั่งซื้อ: LMF-{{order.b_id}}</span>
+                <span style="display: flex;">ชื่อผู้รับ: {{order.name}}</span>
+                <span style="display: flex;">ที่อยู่จัดส่ง: {{order.address}}</span>
+                <span style="display: flex;">ราคารวม: &#3647; {{order.totalprice-nov}}</span>
+                <span style="display: flex;">ราคารวม(ค่าจัดส่ง): &#3647; {{order.totalprice}}</span>
+                <span style="display: flex;">เบอร์โทรศัพท์: {{order.phone}}</span>
+                <div *ngIf="order.status == 'จัดส่งแล้ว'; else underage">
+                  <h2 style="color: #27BEDF;">{{order.status}}</h2>
+                </div>
+
+                <ng-template #underage>
+                  <h2 style="color: #DF3D27;">{{order.status}}!</h2>
+                </ng-template>
+
+
+                <!-- <h2 style="display: block;">{{order.status}}</h2> -->
+                <!-- <div style="background-color: #dc143c; color: white; display: flex; align-items: center; justify-content: center;">
+                  <span>ยังไม่จัดส่ง</span>
+                </div> -->
+                <!-- <div [ngClass]="{'green-text': condition, 'red-text': !condition}">
+                  This text will have the class 'green-text' if the condition is true, otherwise it will have the class 'red-text'.
+                </div> -->
+
+                <!-- <span style="display: block;">สถานะการจัดส่ง: </span> -->
+              </div>
+              <div style="width: 200px; display: flex; align-items: center;">
+                <button (click)="openOrder(order.b_id)" style="width: 80px; background-color: rgb(30, 210, 78);color: white;border: none; border-radius: 5px;">
+                  view!
+                </button>
+              </div>
+            </div>
+
+<!-- /////////////////////////////////////////////////////////// -->
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <footer style="background-color: rgb(57, 57, 58); margin-top: 40px;">
+    <div class="container d-flex align-items-center justify-content-center" style="height:200px; background-color: rgb(57, 57, 58);">
+      <p style="color: #ffffff;">&copy; 2023 Pitak Photirach & Naluebed Yindeesup</p>
+    </div>
+
+  </footer>
+
+</div>
+
+</body>

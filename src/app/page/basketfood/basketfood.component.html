@@ -1,0 +1,58 @@
+<div style="display: flex; flex-direction: column; height: 600px; margin: 20px;" >
+  <label style="color: rgb(240, 68, 68); position: absolute; right: 5%; font-size: 20px;cursor:pointer" (click)="close()">X</label>
+  <label style="color: rgb(0, 0, 0); position: absolute; left:3%; font-size: 20px;">ตะกร้า</label>
+
+  <div style="margin-bottom: 4%;">
+
+  </div>
+
+  <div style="border-radius: 5px; display: flex; flex-direction: column; height: auto;background-color:#D9D9D9; margin-top: 3%;"*ngFor="let item of this.item">
+    <div style="margin: 20px;display: flex; justify-content:space-between;">
+      <div style="width: 100%;">
+        <span>{{item.name}}</span><br>
+        <span>ราคารวม&#3647;{{item.price*item.amount}} </span>
+        <span>จำนวน{{item.amount}}</span><br>
+        <span>ราคาต่อชิ้น{{item.price}}บาท</span>
+      </div>
+
+      <!-- <span>&#3647;จำนวน: {{item.amount}}</span> -->
+      <div style="width: 100%; display: grid; justify-content: center; align-items: center;">
+        <div>
+          <button style="width: 30px; border-radius: 20px;" class="minus" (click)="decrease(item.amount, item)">-</button>
+          <span style="margin-left: 20px;margin-right: 20px;" class="input" #count>{{item.amount}}</span>
+          <button style="width: 30px; border-radius: 20px;"  class="plus" (click)="increase(item.amount, item)">+</button>
+        </div>
+      </div>
+
+      <div style="width: 100%; display: grid; justify-content: right; align-items: center;">
+        <span (click)="delete(item)" style="color: rgb(240, 68, 68);cursor:pointer"  >ลบ</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; display: flex; flex-direction: column;width: auto;"*ngFor="let itemS of this.itemsum">
+    <div style="display: flex;
+    justify-content: space-between;">
+
+    <h3>ราคารวม</h3>
+
+    <div *ngIf="itemS.sum > 0; else underage">
+      <h3>&#3647; {{itemS.sum-nat}}</h3>
+    </div>
+        <h3>ราคาที่ต้องจ่าย(ค่าจัดส่ง 15 บาท)<br></h3>
+
+        <div *ngIf="itemS.sum > 0; else underage">
+          <h3>&#3647; {{itemS.sum}}</h3>
+        </div>
+
+        <ng-template #underage>
+          <h3>&#3647; 0</h3>
+        </ng-template>
+        <!-- <h3>&#3647; {{itemS.sum}}</h3> -->
+
+    </div>
+    <button (click)="order(itemS.sum)" style="margin-top: 1%;background-color: rgb(30, 210, 78);">สั่งชื่อ</button>
+  </div>
+
+</div>

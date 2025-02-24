@@ -1,0 +1,41 @@
+<html>
+<head>
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		div {
+			width: 400px;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+    input, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+	</style>
+</head>
+<body style="background-image: url('https://media.istockphoto.com/id/1258733624/vector/herbs-and-spices-seamless-pattern-ginger-spinach-onion-pepper-garlic-fennel-packaging.jpg?s=612x612&w=0&k=20&c=6Fioel8Vz9YjpamIfhS68KzPhPfgPbcX5gs_6fJQPzQ=');">
+
+  <div style="background-color: rgb(30, 210, 78)">
+		<h2 style="text-align: center; color: #ffffff;">เข้าสู่ระบบ</h2>
+		<input type="text" name="username" placeholder="เบอร์โทรศัพท์" #phon ><br><br>
+		<input type="password" id="password" name="password" placeholder="รหัสผ่าน" #pwd><br><br>
+
+    <button #user style="background-color: #0e870e; color: #f9f9f9;" type="submit"(click)="login(phon.value, pwd.value)">
+      ล็อกอิน
+    </button>
+	</div>
+</body>
+</html>

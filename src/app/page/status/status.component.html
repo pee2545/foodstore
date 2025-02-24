@@ -1,0 +1,21 @@
+<div style="display: flex; flex-direction: column; height: auto; width: 300px; margin: 20px;">
+  <label style="cursor:pointer; color: rgb(240, 68, 68); position: absolute; right: 10%; font-size: 20px;" (click)="close()">X</label>
+  <div *ngFor="let item of itemor" style="display: flex; flex-direction: column;margin-top: 10%;">
+
+      <div style="display: flex; justify-content:space-between">
+        <span>{{item.name}}</span>
+        <span>&#3647; {{item.price}}</span>
+      </div>
+      <div style="display: flex; justify-content:space-between">
+        <span>จำนวน {{item.amount}}</span>
+        <span>รวม &#3647; {{item.price*item.amount}}</span>
+      </div>
+      -------------------------------------------------------------------
+  </div>
+
+  <div style="display: flex; justify-content: center;" *ngFor="let order of orderbill">
+    <div *ngIf="order.status == 'ยังไม่จัดส่ง'">
+      <button (click)="updateStatus()" style="width: 150px; margin: 0 20px 20px 20px; background-color: rgb(255, 219, 16);border-radius: 5px;">ยืนยันการจัดส่ง</button>
+    </div>
+  </div>
+</div>

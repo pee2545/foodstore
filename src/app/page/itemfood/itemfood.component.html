@@ -1,0 +1,16 @@
+<div style="display: flex; flex-direction: column; height: auto; width: 300px; margin: 20px;">
+  <label style="cursor:pointer; color: rgb(240, 68, 68); position: absolute; right: 10%; font-size: 20px;" (click)="close()">X</label>
+  <div style="display: flex; justify-content: center;">
+    <img width="200px" style="margin-top: 15%;" src="{{food.image}}" alt="">
+  </div>
+  <div style="display: flex; justify-content: center;flex-direction: column; text-align: center;margin-top: 10%;">
+    <h5>{{food.name}}</h5>
+    <span>&#3647; {{food.price}}</span>
+  </div>
+  <div style="display: flex; justify-content: center; margin-top: 15%;">
+    <button style="width: 50px;" class="minus" (click)="decrease()">-</button>
+    <span style="margin-left: 20px;margin-right: 20px;" class="input" >{{count}}</span>
+    <button style="width: 50px;"  class="plus" (click)="increase()">+</button>
+  </div>
+  <button (click)="add(count)" style="margin-top: 7%;background-color: rgb(30, 210, 78)">ใส่ในตะกร้า</button>
+</div>

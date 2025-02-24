@@ -1,0 +1,72 @@
+<body>
+  <mat-toolbar class="fxLayout drak app-toolbar" style="width:100%;height: auto; flex-direction: row;justify-content:space-between;
+  background-color: #ffffff ;color: rgb(0, 0, 0); position: -webkit-sticky; position: sticky; top: 0px; z-index: 1000;box-shadow: 1px 0px 5px #000000;" >
+  <div class="container" style="margin-top: 50px;display: inline-flex;justify-content:space-between; ">
+    <div class="fxLayout" style="flex-direction:row; align-items: center; position: relative;">
+      <h1 style="font-size: 30px;font-weight: bolder;">Thai Restaurant</h1>
+      <mat-chip-listbox aria-label="Fish selection" style="margin-top: 10px; margin-bottom: 15px;">
+        <mat-chip-option (click)="findfoodAll()" style="background-color:  rgb(30, 210, 78);" selected>เมนูทั้งหมด</mat-chip-option>
+        <mat-chip-option (click)="findFoodtype(type.name)" style="background-color:  rgb(30, 210, 78);" *ngFor="let type of this.foodtypes">
+          {{type.name}}
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+    <div>
+      <mat-icon (click)="openBasket()" class="grow" style="margin-right: 20px;width: 40px; height: 40px;cursor:pointer ">
+        <div style="display: flex; justify-content: center;">
+          <img width="100%" src="https://img.icons8.com/ios-glyphs/100/add-to-basket.png" alt="">
+          <!-- https://www.pngall.com/wp-content/uploads/5/Shopping-Cart.png -->
+        </div>
+      </mat-icon>
+
+      <mat-icon (click)="openOrder()" class="grow" style="margin-right: 20px;width: 40px; height: 40px;cursor:pointer">
+        <div style="display: flex; justify-content: center;">
+          <img width="100%" src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/order-512.png" alt="">
+          <!-- https://www.pngarts.com/files/2/Order-Transparent-Background-PNG.png -->
+        </div>
+      </mat-icon>
+
+      <mat-icon (click)="logout()" class="grow" style="margin-right: 20px;width: 40px; height: 40px;cursor:pointer">
+        <div style="display: flex; justify-content: center;">
+          <img width="100%" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3183553/ic-fluent-share-24-filled-icon-md.png" alt="">
+          <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_logOut-ltr.svg/1024px-OOjs_UI_icon_logOut-ltr.svg.png -->
+        </div>
+      </mat-icon>
+    </div>
+  </div>
+
+</mat-toolbar>
+
+<div style="width: 100%; height: auto;">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12" style="margin-top: 20px;">
+        <h3>รายการอาหาร</h3>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div *ngFor="let food of this.foods" (click)="openItem(this.food)" class="col-lg-4"style="display: inline-flex; margin-top: 20px;height:200px; border-radius: 10px; cursor:pointer">
+        <mat-card class="example-card" style="width: 100%; height: 90%;">
+          <mat-card-header>
+            <img width="150px"  src="{{food.image}}" style=" position: absolute;left: 5%; top: 50%; transform: translate(0%,-50%); border-radius: 5px;" alt=" ">
+            <mat-card-title style="position: absolute; right: 5%; top: 20%;">{{food.name}}</mat-card-title>
+            <mat-card-title style="position: absolute; right: 5%; top: 60%;">&#3647; {{food.price}}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </div>
+
+    </div>
+
+  </div>
+  <footer style="background-color: rgb(57, 57, 58); margin-top: 40px;">
+    <div class="container d-flex align-items-center justify-content-center" style="height:200px; background-color: rgb(57, 57, 58);">
+      <p style="color: #ffffff;">&copy; 2023 Pitak Photirach & Naluebed Yindeesup</p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
